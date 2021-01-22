@@ -1,65 +1,69 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+// import contentstack from "contentstack";
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+// import HeaderComponent from "../components/HeaderComponent";
+// import FooterComponent from "../components/FooterComponent";
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+import StoriesComponent from "../components/StoriesComponent";
+import Layout from "../components/Layout";
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+import getAllEntries from "../contentstack/getAllEntries";
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+export default function Home(props) {
+	return (
+		<div className="container">
+			{console.log(props)}
+			{/* <HeaderComponent header={props.header} /> */}
+			<Layout header={props.header} footer={props.footer}>
+				<StoriesComponent stories={props.stories} />
+			</Layout>
+			{/* <FooterComponent header={props.footer} /> */}
+		</div>
+	);
 }
+
+export const getStaticProps = async () => {
+	try {
+		// const Stack = contentstack.Stack(
+		// 	process.env.API_KEY,
+		// 	process.env.DELIVERY_TOKEN,
+		// 	process.env.ENVIRONMENT_NAME
+		// );
+
+		// const Header = Stack.ContentType("cms_header_venu").Query();
+		// let header = await Header.where("title")
+		// 	.includeContentType()
+		// 	.includeCount()
+		// 	.toJSON()
+		// 	.find();
+
+		// const Stories = Stack.ContentType("cms_blog_venu").Query();
+		// let stories = await Stories.where("title")
+		// 	.includeContentType()
+		// 	.includeCount()
+		// 	.toJSON()
+		// 	.find();
+
+		// const Footer = Stack.ContentType("cms_footer_venu").Query();
+		// let footer = await Footer.where("title")
+		// 	.includeContentType()
+		// 	.includeCount()
+		// 	.toJSON()
+		// 	.find();
+
+		let header = await getAllEntries("cms_header_venu");
+		let stories = await getAllEntries("cms_blog_venu");
+		let footer = await getAllEntries("cms_footer_venu");
+
+		return {
+			props: {
+				header: [...header[0]],
+				stories: [...stories[0]],
+				footer: [...footer[0]],
+			},
+		};
+	} catch (err) {
+		console.log(err);
+	}
+};
