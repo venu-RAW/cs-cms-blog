@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## This is the simple Escape Blog Application. It is done by integrating the CONTENTSTACK CMS ( backend ) with the next application. It shows the stories for the escape ideas.
+
+## Live Demo :- 
+  - https://cs-cms-blog.vercel.app/
+
 ## Getting Started
 
 First, run the development server:
