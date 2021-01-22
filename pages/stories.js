@@ -12,7 +12,7 @@ export default function Home(props) {
 			</Layout>
 		</div>
 	);
-}
+}	
 
 export const getStaticProps = async () => {
 	try {

@@ -8,13 +8,9 @@ import SingleStoryComponent from "../../components/SingleStoryComponent";
 import Layout from "../../components/Layout";
 
 function SingleStory(props) {
-	// let navigateBack = (event) => {
-	// 	props.router.back();
-	// };
 	return (
 		<Layout header={props.header} footer={props.footer}>
 			<div className="container">
-				{/* <button onClick={navigateBack}>Back</button> */}
 				<SingleStoryComponent story={props.story} />
 			</div>
 		</Layout>

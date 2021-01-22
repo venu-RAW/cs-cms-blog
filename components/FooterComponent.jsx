@@ -6,7 +6,7 @@ export default function FooterComponent(props) {
 		<div className={styles.footer}>
 			{console.log(props)}
 			<div className={styles.footer_content}>
-				<p>{props.footer.copyright}</p>
+				<p>{props.footer.copyright}.</p>
 				<div className={styles.social_media}>
 					<ul className={styles.social_icons}>
 						{props.footer.social_icons.map((link) => {

@@ -4,13 +4,36 @@
 	margin: 0 auto;
 	width: 90%;
 	display: flex;
-	padding: 3rem 0;
-	/* background-color: #f7f8fa; */
+	padding: 3rem 0 8rem 0;
 }
 
 .story {
 	width: 65%;
 	padding-right: 2rem;
+}
+
+.story_content {
+	text-align: center;
+}
+
+.story_content h1 {
+	font-family: "Montserrat", sans-serif;
+	padding: 4rem 0 2rem 0;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.story_para {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.story_para p {
+	padding-top: 5rem;
+	border-top: 1px solid #ddd;
+	line-height: 1.5;
+	text-align: justify;
+	word-spacing: 0.4rem;
 }
 
 .story_image {
@@ -23,7 +46,6 @@
 
 .related_links {
 	width: 35%;
-	padding: 0 5rem;
 	padding-left: 2rem;
 	font-family: "Montserrat", sans-serif;
 }
@@ -32,20 +54,136 @@
 	font-weight: 600;
 	text-transform: uppercase;
 	font-size: 1.5rem;
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
 }
 
 .single_link {
 	display: flex;
+	height: 14rem;
+	padding: 2rem;
+	margin-bottom: 1.5rem;
+	background-color: #f7f8fa;
+	cursor: pointer;
 }
 
 .image_div {
-	flex: 1;
+	width: 50%;
 }
 
 .image_div img {
 	width: 100%;
+	height: 100%;
 }
 
 .single_text {
-	flex: 1;
+	width: 50%;
+	padding-left: 2rem;
+	overflow-wrap: break-word;
+	overflow: hidden;
+}
+
+.single_text h4 {
+	font-weight: 500;
+	font-size: 1.4rem;
+	margin-bottom: 1rem;
+	text-decoration: underline;
+	text-underline-position: under;
+}
+
+.tags {
+	font-size: 1.3rem;
+	word-wrap: break-word;
+}
+
+.tags span {
+	font-weight: 500;
+}
+
+@media screen and (max-width: 1024px) {
+	.single_text h4 {
+		font-size: 1.2rem;
+	}
+
+	.tags {
+		font-size: 1.1rem;
+	}
+
+	.story_content h1 {
+		font-size: 2.5rem;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.single_link {
+		height: 12rem;
+	}
+
+	.single_text h4 {
+		font-size: 1rem;
+	}
+
+	.story_content h1 {
+		font-size: 2.2rem;
+	}
+
+	.tags {
+		font-size: 0.9rem;
+	}
+
+	.story_para {
+		width: 100%;
+	}
+
+	.story_para p {
+		word-spacing: 0.2rem;
+		font-size: 1.3rem;
+	}
+
+	.related_links h2 {
+		font-size: 1.2rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.single_container {
+		flex-direction: column;
+	}
+
+	.story {
+		width: 100%;
+		padding-bottom: 6rem;
+	}
+
+	.related_links {
+		width: 100%;
+	}
+
+	.story_para {
+		width: 80%;
+	}
+
+	.links_container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.single_link {
+		width: 48%;
+		margin-right: 2rem;
+	}
+
+	.single_link:nth-child(even) {
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.single_link {
+		width: 46%;
+	}
+
+	.single_text h4 {
+		font-size: 0.9rem;
+	}
 }

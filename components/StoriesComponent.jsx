@@ -12,8 +12,9 @@ export default function StoriesComponent(props) {
 						<Link
 							href={`/stories/${story.uid}`}
 							className={styles.blog_author__link}
+							key={story.uid}
 						>
-							<div className={styles.blog_card} key={story.uid}>
+							<div className={styles.blog_card}>
 								<div className={styles.blog_image}>
 									<img src={story.blog_image.url} alt={story.title} />
 								</div>
